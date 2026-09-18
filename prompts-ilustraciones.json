@@ -1,0 +1,36 @@
+{
+  "titulo": "El Ratón Vaquero va a la Escuela",
+  "estilo_general": "Ilustración infantil tierna, colorida y luminosa, mezcla de colores pastel y vibrantes, personajes adorables, expresiones suaves, composición amigable para niños de 3 años, ambiente educativo y amoroso.",
+  "ilustraciones": [
+    {
+      "capitulo": 1,
+      "titulo": "El Primer Día",
+      "prompt": "Rodeo, un pequeño ratón vaquero adorable, preparándose para su primer día de escuela dentro de una habitación acogedora al amanecer. Lleva sombrero vaquero pequeño, pañuelo azul y mochila roja. Mamá ratona lo abraza con ternura. Luz dorada entrando por la ventana, juguetes de madera, manta suave, ambiente cálido, seguro, feliz y amoroso. Ilustración infantil, colores pastel y vibrantes, detalles tiernos, composición clara para niños pequeños."
+    },
+    {
+      "capitulo": 2,
+      "titulo": "Camino a la Escuela",
+      "prompt": "Rodeo caminando por un sendero alegre hacia la escuela junto a Pepita la ardilla, Benito el conejo y Luna la mariposa. Flores silvestres, árboles redondos, cielo azul con nubes suaves, mochilas pequeñas y coloridas, sensación de amistad, valentía y emoción. Ilustración infantil muy tierna, colores pastel brillantes, personajes dulces y expresivos, escenario campestre encantador."
+    },
+    {
+      "capitulo": 3,
+      "titulo": "Dentro de la Escuela",
+      "prompt": "Interior de un salón de clases infantil lleno de luz. Rodeo, Pepita, Benito y Luna aprenden con la Señorita Rosa. Letras grandes en la pared, números de madera, crayones de colores, cuentos ilustrados, alfombra suave, ventanas amplias, ambiente educativo, alegre y acogedor. Ilustración infantil detallada, tierna, colorida, con mezcla de tonos pastel y vibrantes."
+    },
+    {
+      "capitulo": 4,
+      "titulo": "Por Qué Es Bueno Estudiar",
+      "prompt": "La Señorita Rosa sentada en una alfombra con Rodeo, Pepita, Benito y Luna, explicando con cariño por qué estudiar es importante. Rodeo abraza un cuaderno, Pepita escucha curiosa, Benito sonríe, Luna vuela cerca. Pizarrón con dibujos simples de letras, números, estrellas y corazones. Ambiente tranquilo, amoroso, educativo y lleno de ternura. Estilo de ilustración infantil, colores suaves y luminosos."
+    },
+    {
+      "capitulo": 5,
+      "titulo": "La Gran Lección",
+      "prompt": "Patio escolar encantador con hojas rojas, amarillas y verdes. Rodeo clasifica hojas rojas, Pepita cuenta hojas amarillas, Benito acomoda cajas y Luna señala una hoja perdida. La maestra observa con orgullo. Escena dinámica y feliz que muestra aprendizaje práctico, trabajo en equipo y diversión. Ilustración infantil cálida, detallada, muy expresiva, con colores pastel vibrantes."
+    },
+    {
+      "capitulo": 6,
+      "titulo": "De Regreso a Casa",
+      "prompt": "Rodeo vuelve a casa al atardecer y abraza a mamá ratona en la puerta de una casita acogedora. Cielo rosado y naranja, jardín con flores, mochila pequeña, sombrero vaquero, emoción de orgullo, amor familiar y paz. Ilustración infantil tierna, tonos pastel brillantes, cierre feliz y reconfortante, adecuada para niños de 3 años."
+    }
+  ]
+}
