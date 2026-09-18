@@ -151,14 +151,14 @@
           Un cuento infantil completo, tierno e interactivo sobre amor,
           valentía, amistad y la alegría de aprender.
         </p>
-        <div class="chapter-nav" aria-label="Navegación de capítulos">
-          <button type="button" data-target="chapter-1">Capítulo 1</button>
-          <button type="button" data-target="chapter-2">Capítulo 2</button>
-          <button type="button" data-target="chapter-3">Capítulo 3</button>
-          <button type="button" data-target="chapter-4">Capítulo 4</button>
-          <button type="button" data-target="chapter-5">Capítulo 5</button>
-          <button type="button" data-target="chapter-6">Capítulo 6</button>
-        </div>
+        <nav class="chapter-nav" aria-label="Navegación de capítulos">
+          <button type="button" data-target="chapter-1" aria-controls="chapter-1">Capítulo 1</button>
+          <button type="button" data-target="chapter-2" aria-controls="chapter-2">Capítulo 2</button>
+          <button type="button" data-target="chapter-3" aria-controls="chapter-3">Capítulo 3</button>
+          <button type="button" data-target="chapter-4" aria-controls="chapter-4">Capítulo 4</button>
+          <button type="button" data-target="chapter-5" aria-controls="chapter-5">Capítulo 5</button>
+          <button type="button" data-target="chapter-6" aria-controls="chapter-6">Capítulo 6</button>
+        </nav>
       </section>
 
       <section id="chapter-1" class="chapter active">
@@ -171,7 +171,7 @@
           <p>—Mi amor —le dijo mamá ratona—, en la escuela vas a aprender cosas bonitas, hacer amigos y crecer con alegría.</p>
           <p>Rodeo sintió cosquillas en la barriga, pero también mucha emoción.</p>
           <p>—Ser valiente no es no tener miedo —susurró mamá—. Ser valiente es dar un pasito con amor.</p>
-          <p>Rodeo sonrió: —¡Yo puedo dar ese pasito!</p>
+          <p>Rodeo sonrió y dijo: —¡Yo puedo dar ese pasito!</p>
         </div>
         <div class="illustration">
           <h3>🖼️ Descripción de ilustración</h3>
@@ -188,7 +188,7 @@
           <p>—¡Vamos juntos! —dijo Benito.</p>
           <p>—¡Sí! —respondió Rodeo muy feliz.</p>
           <p>Los cuatro siguieron el camino hablando, riendo y contando nubecitas en el cielo.</p>
-          <p>Rodeo descubrió algo importante: —Cuando voy con amigos, mi corazón se siente más grande.</p>
+          <p>Rodeo descubrió algo importante: —Mi corazón se siente más grande cuando voy con amigos.</p>
           <p>—Porque la amistad da valor —respondieron sus amigos.</p>
         </div>
         <div class="illustration">
@@ -202,7 +202,7 @@
         <h2>Números, letras, colores y valores</h2>
         <div class="story">
           <p>La escuela tenía una puerta azul, ventanas grandes y dibujos en las paredes.</p>
-          <p>La Señorita Rosa los recibió con una sonrisa dulce: —¡Bienvenidos, pequeños exploradores!</p>
+          <p>La Señorita Rosa los recibió con una sonrisa dulce y dijo: —¡Bienvenidos, pequeños exploradores!</p>
           <p>Primero aprendieron los números. Rodeo contó tres crayones: —Uno, dos, tres.</p>
           <p>Después vieron las letras. Pepita dijo: —La A de amor.</p>
           <p>Luego jugaron con los colores: rojo como una manzana, azul como el cielo y amarillo como el sol.</p>
@@ -222,8 +222,8 @@
           <p>Rodeo preguntó con curiosidad: —Señorita Rosa, ¿por qué es bueno estudiar?</p>
           <p>La maestra se sentó con ellos en la alfombra y respondió con cariño:</p>
           <p>—Porque cada día aprendes algo nuevo. Aprender te ayuda a pensar, hablar, cuidarte, ayudar a otros y acercarte a tus sueños.</p>
-          <p>Pepita pensó en las hojas, Benito en contar zanahorias y Luna en dibujar cosas bonitas.</p>
-          <p>Rodeo abrazó su cuaderno: —Entonces estudiar me hace fuerte por dentro.</p>
+          <p>Pepita preguntó por las hojas, Benito por contar zanahorias y Luna por dibujar cosas bonitas.</p>
+          <p>Rodeo abrazó su cuaderno y dijo: —Entonces estudiar me hace fuerte por dentro.</p>
           <p>—Exactamente —dijo la maestra—. También te hace más amable, más seguro y más feliz.</p>
         </div>
         <div class="illustration">
@@ -295,7 +295,19 @@
       function showChapter(index) {
         currentIndex = index;
         chapters.forEach((chapter, chapterIndex) => {
-          chapter.classList.toggle("active", chapterIndex === index);
+          const isActive = chapterIndex === index;
+          chapter.classList.toggle("active", isActive);
+          chapter.hidden = !isActive;
+          chapter.setAttribute("aria-hidden", String(!isActive));
+        });
+        jumpButtons.forEach((button, buttonIndex) => {
+          const isActive = buttonIndex === index;
+          button.setAttribute("aria-pressed", String(isActive));
+          if (isActive) {
+            button.setAttribute("aria-current", "true");
+          } else {
+            button.removeAttribute("aria-current");
+          }
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;

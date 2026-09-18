@@ -27,7 +27,7 @@ Entonces su mamá lo abrazó fuerte.
 
 —Ser valiente no es no tener miedo —susurró—. Ser valiente es dar un pasito con amor.
 
-Rodeo sonrió.
+Rodeo sonrió y dijo:
 
 —¡Yo puedo dar ese pasito!
 
@@ -61,7 +61,7 @@ Los cuatro siguieron el camino juntos. Hablaron, rieron y contaron nubecitas en 
 
 Rodeo se dio cuenta de algo muy importante:
 
-—Cuando voy con amigos, mi corazón se siente más grande.
+—Mi corazón se siente más grande cuando voy con amigos.
 
 Pepita, Benito y Luna sonrieron.
 
@@ -77,7 +77,7 @@ Sendero hacia una escuela de campo, Rodeo caminando feliz con Pepita la ardilla,
 
 La escuela tenía una puerta azul, ventanas grandes y dibujos pegados en las paredes.
 
-La **Señorita Rosa** los recibió con una sonrisa dulce.
+La **Señorita Rosa** los recibió con una sonrisa dulce y dijo:
 
 —¡Bienvenidos, pequeños exploradores!
 
@@ -123,19 +123,19 @@ La maestra se sentó con ellos en la alfombra.
 
 —Estudiar es bueno porque cada día aprendes algo nuevo —dijo con voz suave—. Cuando aprendes, puedes entender mejor el mundo.
 
-Pepita abrió mucho los ojos.
+Pepita abrió mucho los ojos y preguntó:
 
-—¿Como saber por qué caen las hojas?
+—¿Cómo saber por qué caen las hojas?
 
 —Sí —dijo la maestra.
 
-Benito sonrió.
+Benito sonrió y preguntó:
 
 —¿Y contar zanahorias?
 
 —También —respondió la maestra.
 
-Luna voló despacito.
+Luna voló despacito y preguntó:
 
 —¿Y dibujar cosas bonitas?
 
@@ -149,7 +149,7 @@ Entonces la Señorita Rosa explicó:
 - Aprender te ayuda a ayudar a otros.
 - Aprender te acerca a tus sueños.
 
-Rodeo abrazó su cuaderno.
+Rodeo abrazó su cuaderno y dijo:
 
 —Entonces estudiar me hace fuerte por dentro.
 
@@ -207,7 +207,7 @@ Patio escolar encantador con hojas de colores volando suavemente, Rodeo clasific
 
 Cuando terminó el día, Rodeo volvió a casa caminando despacito bajo el cielo rosado.
 
-Su mamá lo esperaba en la puerta.
+Su mamá lo esperaba en la puerta y preguntó:
 
 —¿Cómo te fue, mi pequeño vaquero?
 
