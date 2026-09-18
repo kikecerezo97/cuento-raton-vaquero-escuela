@@ -152,7 +152,7 @@
           valentía, amistad y la alegría de aprender.
         </p>
         <nav class="chapter-nav" aria-label="Navegación de capítulos" role="tablist">
-          <button id="tab-chapter-1" type="button" role="tab" data-target="chapter-1" aria-controls="chapter-1" aria-selected="true" aria-current="true">Capítulo 1</button>
+          <button id="tab-chapter-1" type="button" role="tab" data-target="chapter-1" aria-controls="chapter-1" aria-selected="true">Capítulo 1</button>
           <button id="tab-chapter-2" type="button" role="tab" data-target="chapter-2" aria-controls="chapter-2" aria-selected="false" tabindex="-1">Capítulo 2</button>
           <button id="tab-chapter-3" type="button" role="tab" data-target="chapter-3" aria-controls="chapter-3" aria-selected="false" tabindex="-1">Capítulo 3</button>
           <button id="tab-chapter-4" type="button" role="tab" data-target="chapter-4" aria-controls="chapter-4" aria-selected="false" tabindex="-1">Capítulo 4</button>
@@ -304,11 +304,6 @@
           const isActive = buttonIndex === index;
           button.setAttribute("aria-selected", String(isActive));
           button.tabIndex = isActive ? 0 : -1;
-          if (isActive) {
-            button.setAttribute("aria-current", "true");
-          } else {
-            button.removeAttribute("aria-current");
-          }
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;
