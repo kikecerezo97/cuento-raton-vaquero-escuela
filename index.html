@@ -151,17 +151,17 @@
           Un cuento infantil completo, tierno e interactivo sobre amor,
           valentía, amistad y la alegría de aprender.
         </p>
-        <nav class="chapter-nav" aria-label="Navegación de capítulos">
-          <button type="button" data-target="chapter-1" aria-controls="chapter-1">Capítulo 1</button>
-          <button type="button" data-target="chapter-2" aria-controls="chapter-2">Capítulo 2</button>
-          <button type="button" data-target="chapter-3" aria-controls="chapter-3">Capítulo 3</button>
-          <button type="button" data-target="chapter-4" aria-controls="chapter-4">Capítulo 4</button>
-          <button type="button" data-target="chapter-5" aria-controls="chapter-5">Capítulo 5</button>
-          <button type="button" data-target="chapter-6" aria-controls="chapter-6">Capítulo 6</button>
+        <nav class="chapter-nav" aria-label="Navegación de capítulos" role="tablist">
+          <button id="tab-chapter-1" type="button" role="tab" data-target="chapter-1" aria-controls="chapter-1">Capítulo 1</button>
+          <button id="tab-chapter-2" type="button" role="tab" data-target="chapter-2" aria-controls="chapter-2">Capítulo 2</button>
+          <button id="tab-chapter-3" type="button" role="tab" data-target="chapter-3" aria-controls="chapter-3">Capítulo 3</button>
+          <button id="tab-chapter-4" type="button" role="tab" data-target="chapter-4" aria-controls="chapter-4">Capítulo 4</button>
+          <button id="tab-chapter-5" type="button" role="tab" data-target="chapter-5" aria-controls="chapter-5">Capítulo 5</button>
+          <button id="tab-chapter-6" type="button" role="tab" data-target="chapter-6" aria-controls="chapter-6">Capítulo 6</button>
         </nav>
       </section>
 
-      <section id="chapter-1" class="chapter active">
+      <section id="chapter-1" class="chapter active" role="tabpanel" aria-labelledby="tab-chapter-1" tabindex="-1">
         <div class="tag">Capítulo 1 · El Primer Día</div>
         <h2>Rodeo se prepara emocionado</h2>
         <div class="story">
@@ -179,7 +179,7 @@
         </div>
       </section>
 
-      <section id="chapter-2" class="chapter">
+      <section id="chapter-2" class="chapter" role="tabpanel" aria-labelledby="tab-chapter-2" tabindex="-1">
         <div class="tag">Capítulo 2 · Camino a la Escuela</div>
         <h2>Rodeo conoce a sus amigos</h2>
         <div class="story">
@@ -197,7 +197,7 @@
         </div>
       </section>
 
-      <section id="chapter-3" class="chapter">
+      <section id="chapter-3" class="chapter" role="tabpanel" aria-labelledby="tab-chapter-3" tabindex="-1">
         <div class="tag">Capítulo 3 · Dentro de la Escuela</div>
         <h2>Números, letras, colores y valores</h2>
         <div class="story">
@@ -215,7 +215,7 @@
         </div>
       </section>
 
-      <section id="chapter-4" class="chapter">
+      <section id="chapter-4" class="chapter" role="tabpanel" aria-labelledby="tab-chapter-4" tabindex="-1">
         <div class="tag">Capítulo 4 · Por Qué Es Bueno Estudiar</div>
         <h2>Lecciones sobre el aprendizaje</h2>
         <div class="story">
@@ -232,7 +232,7 @@
         </div>
       </section>
 
-      <section id="chapter-5" class="chapter">
+      <section id="chapter-5" class="chapter" role="tabpanel" aria-labelledby="tab-chapter-5" tabindex="-1">
         <div class="tag">Capítulo 5 · La Gran Lección</div>
         <h2>Rodeo usa lo aprendido</h2>
         <div class="story">
@@ -250,7 +250,7 @@
         </div>
       </section>
 
-      <section id="chapter-6" class="chapter">
+      <section id="chapter-6" class="chapter" role="tabpanel" aria-labelledby="tab-chapter-6" tabindex="-1">
         <div class="tag">Capítulo 6 · De Regreso a Casa</div>
         <h2>Una reflexión final llena de amor</h2>
         <div class="story">
@@ -292,7 +292,8 @@
       const nextButton = document.getElementById("next");
       let currentIndex = 0;
 
-      function showChapter(index) {
+      function showChapter(index, options = {}) {
+        const { focusPanel = false } = options;
         currentIndex = index;
         chapters.forEach((chapter, chapterIndex) => {
           const isActive = chapterIndex === index;
@@ -302,7 +303,8 @@
         });
         jumpButtons.forEach((button, buttonIndex) => {
           const isActive = buttonIndex === index;
-          button.setAttribute("aria-pressed", String(isActive));
+          button.setAttribute("aria-selected", String(isActive));
+          button.tabIndex = isActive ? 0 : -1;
           if (isActive) {
             button.setAttribute("aria-current", "true");
           } else {
@@ -311,21 +313,24 @@
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;
+        if (focusPanel) {
+          chapters[index].focus();
+        }
       }
 
       jumpButtons.forEach((button, index) => {
-        button.addEventListener("click", () => showChapter(index));
+        button.addEventListener("click", () => showChapter(index, { focusPanel: true }));
       });
 
       prevButton.addEventListener("click", () => {
         if (currentIndex > 0) {
-          showChapter(currentIndex - 1);
+          showChapter(currentIndex - 1, { focusPanel: true });
         }
       });
 
       nextButton.addEventListener("click", () => {
         if (currentIndex < chapters.length - 1) {
-          showChapter(currentIndex + 1);
+          showChapter(currentIndex + 1, { focusPanel: true });
         }
       });
 
