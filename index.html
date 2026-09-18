@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Ratón Vaquero va a la Escuela</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fffaf2;
+        --card: #ffffff;
+        --text: #503b2a;
+        --accent: #ff8f6b;
+        --accent-2: #7cc7ff;
+        --accent-3: #ffe17d;
+        --shadow: 0 12px 30px rgba(146, 110, 80, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #fffaf2 0%, #fff0f6 100%);
+        color: var(--text);
+      }
+
+      .page {
+        width: min(980px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 3rem;
+      }
+
+      .hero,
+      .chapter,
+      .values {
+        background: var(--card);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero {
+        text-align: center;
+        background: linear-gradient(135deg, #fffdf8, #fff3cd);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 0;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .chapter-nav,
+      .pager {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .chapter-nav {
+        justify-content: center;
+        margin: 1.25rem 0 0;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 0.75rem 1rem;
+        font: inherit;
+        cursor: pointer;
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 6px 18px rgba(255, 143, 107, 0.35);
+      }
+
+      button.secondary {
+        background: var(--accent-2);
+        box-shadow: 0 6px 18px rgba(124, 199, 255, 0.35);
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        box-shadow: none;
+      }
+
+      .chapter {
+        display: none;
+      }
+
+      .chapter.active {
+        display: block;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        background: #fff2e3;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+      }
+
+      .story {
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      .illustration {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 18px;
+        background: #f9fbff;
+        border: 2px dashed #c8e4ff;
+      }
+
+      .values ul {
+        padding-left: 1.2rem;
+        line-height: 1.8;
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100% - 1rem, 980px);
+          padding-top: 1rem;
+        }
+
+        .hero,
+        .chapter,
+        .values {
+          padding: 1rem;
+          border-radius: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <h1>🤠 El Ratón Vaquero va a la Escuela 🎓</h1>
+        <p class="subtitle">
+          Un cuento infantil completo, tierno e interactivo sobre amor,
+          valentía, amistad y la alegría de aprender.
+        </p>
+        <div class="chapter-nav" aria-label="Navegación de capítulos">
+          <button type="button" data-target="chapter-1">Capítulo 1</button>
+          <button type="button" data-target="chapter-2">Capítulo 2</button>
+          <button type="button" data-target="chapter-3">Capítulo 3</button>
+          <button type="button" data-target="chapter-4">Capítulo 4</button>
+          <button type="button" data-target="chapter-5">Capítulo 5</button>
+          <button type="button" data-target="chapter-6">Capítulo 6</button>
+        </div>
+      </section>
+
+      <section id="chapter-1" class="chapter active">
+        <div class="tag">Capítulo 1 · El Primer Día</div>
+        <h2>Rodeo se prepara emocionado</h2>
+        <div class="story">
+          <p>Rodeo, el ratón vaquero, abrió sus ojitos cuando el sol entró por la ventana.</p>
+          <p>—¡Hoy voy a la escuela! —dijo con una sonrisa grandota.</p>
+          <p>Su mamá lo ayudó a ponerse su sombrero pequeño, su pañuelito azul y su mochilita roja.</p>
+          <p>—Mi amor —le dijo mamá ratona—, en la escuela vas a aprender cosas bonitas, hacer amigos y crecer con alegría.</p>
+          <p>Rodeo sintió cosquillas en la barriga, pero también mucha emoción.</p>
+          <p>—Ser valiente no es no tener miedo —susurró mamá—. Ser valiente es dar un pasito con amor.</p>
+          <p>Rodeo sonrió: —¡Yo puedo dar ese pasito!</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Habitación acogedora al amanecer, Rodeo con sombrero vaquero, pañuelo azul y mochila roja, mamá ratona abrazándolo con ternura, luz dorada entrando por la ventana, juguetes de madera, mantita de colores pastel, ambiente cálido, dulce y seguro, estilo de ilustración infantil suave y alegre.</p>
+        </div>
+      </section>
+
+      <section id="chapter-2" class="chapter">
+        <div class="tag">Capítulo 2 · Camino a la Escuela</div>
+        <h2>Rodeo conoce a sus amigos</h2>
+        <div class="story">
+          <p>Rodeo caminó por un senderito entre flores, mariposas y árboles verdes.</p>
+          <p>Muy pronto encontró a Pepita la ardilla, a Benito el conejo y a Luna la mariposa.</p>
+          <p>—¡Vamos juntos! —dijo Benito.</p>
+          <p>—¡Sí! —respondió Rodeo muy feliz.</p>
+          <p>Los cuatro siguieron el camino hablando, riendo y contando nubecitas en el cielo.</p>
+          <p>Rodeo descubrió algo importante: —Cuando voy con amigos, mi corazón se siente más grande.</p>
+          <p>—Porque la amistad da valor —respondieron sus amigos.</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Sendero hacia una escuela de campo, Rodeo caminando feliz con Pepita la ardilla, Benito el conejo y Luna la mariposa, flores silvestres, cielo azul con nubes suaves, mochilas pequeñas y coloridas, árboles redondos y amigables, ambiente alegre, infantil, tierno, lleno de movimiento y compañerismo.</p>
+        </div>
+      </section>
+
+      <section id="chapter-3" class="chapter">
+        <div class="tag">Capítulo 3 · Dentro de la Escuela</div>
+        <h2>Números, letras, colores y valores</h2>
+        <div class="story">
+          <p>La escuela tenía una puerta azul, ventanas grandes y dibujos en las paredes.</p>
+          <p>La Señorita Rosa los recibió con una sonrisa dulce: —¡Bienvenidos, pequeños exploradores!</p>
+          <p>Primero aprendieron los números. Rodeo contó tres crayones: —Uno, dos, tres.</p>
+          <p>Después vieron las letras. Pepita dijo: —La A de amor.</p>
+          <p>Luego jugaron con los colores: rojo como una manzana, azul como el cielo y amarillo como el sol.</p>
+          <p>También aprendieron a decir por favor, compartir y ayudar.</p>
+          <p>Rodeo levantó su patita: —¡Aprender es bonito!</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Salón de clases infantil muy colorido, Rodeo, Pepita, Benito y Luna aprendiendo con la Señorita Rosa, letras grandes en la pared, números de madera, crayones gigantes, alfombra suave, estantes bajos con cuentos, ventanas luminosas, colores pastel y vibrantes, expresión de asombro y alegría en todos los personajes.</p>
+        </div>
+      </section>
+
+      <section id="chapter-4" class="chapter">
+        <div class="tag">Capítulo 4 · Por Qué Es Bueno Estudiar</div>
+        <h2>Lecciones sobre el aprendizaje</h2>
+        <div class="story">
+          <p>Rodeo preguntó con curiosidad: —Señorita Rosa, ¿por qué es bueno estudiar?</p>
+          <p>La maestra se sentó con ellos en la alfombra y respondió con cariño:</p>
+          <p>—Porque cada día aprendes algo nuevo. Aprender te ayuda a pensar, hablar, cuidarte, ayudar a otros y acercarte a tus sueños.</p>
+          <p>Pepita pensó en las hojas, Benito en contar zanahorias y Luna en dibujar cosas bonitas.</p>
+          <p>Rodeo abrazó su cuaderno: —Entonces estudiar me hace fuerte por dentro.</p>
+          <p>—Exactamente —dijo la maestra—. También te hace más amable, más seguro y más feliz.</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Escena tranquila en la alfombra del salón, Señorita Rosa sentada con los niños explicando con ternura por qué estudiar es importante, Rodeo abrazando un cuaderno, Pepita curiosa, Benito sonriente, Luna revoloteando, pizarrón con dibujos simples de letras, números, estrellas y corazones, luz suave, composición cálida y educativa.</p>
+        </div>
+      </section>
+
+      <section id="chapter-5" class="chapter">
+        <div class="tag">Capítulo 5 · La Gran Lección</div>
+        <h2>Rodeo usa lo aprendido</h2>
+        <div class="story">
+          <p>En el patio, una ráfaga de viento movió muchas hojitas de colores.</p>
+          <p>La Señorita Rosa propuso guardarlas en tres cajas: rojas, amarillas y verdes.</p>
+          <p>Rodeo recordó los colores y encontró las hojas rojas.</p>
+          <p>Pepita contó las amarillas, Benito acomodó las cajas y Luna señaló una hoja verde detrás del banco.</p>
+          <p>Trabajaron juntos, con calma y alegría, hasta dejar el patio ordenado.</p>
+          <p>La maestra aplaudió: —Hoy usaron colores, números, atención y trabajo en equipo.</p>
+          <p>Rodeo sonrió: —¡Aprender sirve de verdad!</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Patio escolar encantador con hojas de colores volando suavemente, Rodeo clasificando hojas rojas, Pepita contando hojas amarillas, Benito ordenando cajas, Luna señalando una hoja verde detrás de un banco, maestra orgullosa observando, escena dinámica, limpia, feliz y cooperativa, estilo infantil tierno y muy expresivo.</p>
+        </div>
+      </section>
+
+      <section id="chapter-6" class="chapter">
+        <div class="tag">Capítulo 6 · De Regreso a Casa</div>
+        <h2>Una reflexión final llena de amor</h2>
+        <div class="story">
+          <p>Cuando terminó el día, Rodeo volvió a casa bajo un cielo rosado.</p>
+          <p>Su mamá lo esperaba en la puerta.</p>
+          <p>—¡Muy bien, mamá! Aprendí números, letras, colores y que estudiar me ayuda a crecer —dijo Rodeo.</p>
+          <p>—¿Y también hiciste amigos?</p>
+          <p>—¡Sí! Pepita, Benito y Luna. Juntos fuimos valientes.</p>
+          <p>Mamá ratona lo abrazó y le dijo que estaba muy orgullosa.</p>
+          <p>Antes de dormir, Rodeo pensó feliz: —Ir a la escuela es una gran aventura de amor, amistad y aprendizaje.</p>
+        </div>
+        <div class="illustration">
+          <h3>🖼️ Descripción de ilustración</h3>
+          <p>Atardecer suave frente a una casita acogedora, Rodeo regresando a casa y abrazando a mamá ratona en la puerta, cielo rosa y naranja, mochila pequeña, sombrero vaquero, jardín con flores, sensación de paz, orgullo, amor familiar y cierre feliz, ilustración infantil cálida con tonos pastel brillantes.</p>
+        </div>
+      </section>
+
+      <section class="pager" aria-label="Controles de capítulo">
+        <button id="prev" type="button" class="secondary">← Anterior</button>
+        <button id="next" type="button">Siguiente →</button>
+      </section>
+
+      <section class="values">
+        <h2>🌟 Valores del cuento</h2>
+        <ul>
+          <li>❤️ Amor entre familia y amigos</li>
+          <li>🎓 Importancia de la educación y el aprendizaje</li>
+          <li>🤠 Valentía y confianza</li>
+          <li>👫 Amistad y trabajo en equipo</li>
+          <li>🌟 Crecimiento personal</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      const chapters = Array.from(document.querySelectorAll(".chapter"));
+      const jumpButtons = Array.from(document.querySelectorAll("[data-target]"));
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      let currentIndex = 0;
+
+      function showChapter(index) {
+        currentIndex = index;
+        chapters.forEach((chapter, chapterIndex) => {
+          chapter.classList.toggle("active", chapterIndex === index);
+        });
+        prevButton.disabled = index === 0;
+        nextButton.disabled = index === chapters.length - 1;
+      }
+
+      jumpButtons.forEach((button, index) => {
+        button.addEventListener("click", () => showChapter(index));
+      });
+
+      prevButton.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          showChapter(currentIndex - 1);
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentIndex < chapters.length - 1) {
+          showChapter(currentIndex + 1);
+        }
+      });
+
+      showChapter(0);
+    </script>
+  </body>
+</html>
