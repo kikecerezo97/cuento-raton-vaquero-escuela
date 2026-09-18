@@ -82,9 +82,20 @@
         box-shadow: 0 6px 18px rgba(255, 143, 107, 0.35);
       }
 
+      button[role="tab"][aria-selected="true"] {
+        background: var(--accent-2);
+        box-shadow: 0 6px 18px rgba(124, 199, 255, 0.35);
+      }
+
       button.secondary {
         background: var(--accent-2);
         box-shadow: 0 6px 18px rgba(124, 199, 255, 0.35);
+      }
+
+      button:focus-visible,
+      .chapter:focus-visible {
+        outline: 3px solid #5a3eff;
+        outline-offset: 3px;
       }
 
       button:disabled {
@@ -152,12 +163,12 @@
           valentía, amistad y la alegría de aprender.
         </p>
         <nav class="chapter-nav" aria-label="Navegación de capítulos" role="tablist">
-          <button id="tab-chapter-1" type="button" role="tab" data-target="chapter-1" aria-controls="chapter-1" aria-selected="true">Capítulo 1</button>
-          <button id="tab-chapter-2" type="button" role="tab" data-target="chapter-2" aria-controls="chapter-2" aria-selected="false" tabindex="-1">Capítulo 2</button>
-          <button id="tab-chapter-3" type="button" role="tab" data-target="chapter-3" aria-controls="chapter-3" aria-selected="false" tabindex="-1">Capítulo 3</button>
-          <button id="tab-chapter-4" type="button" role="tab" data-target="chapter-4" aria-controls="chapter-4" aria-selected="false" tabindex="-1">Capítulo 4</button>
-          <button id="tab-chapter-5" type="button" role="tab" data-target="chapter-5" aria-controls="chapter-5" aria-selected="false" tabindex="-1">Capítulo 5</button>
-          <button id="tab-chapter-6" type="button" role="tab" data-target="chapter-6" aria-controls="chapter-6" aria-selected="false" tabindex="-1">Capítulo 6</button>
+          <button id="tab-chapter-1" type="button" role="tab" data-target="chapter-1" aria-controls="chapter-1" aria-selected="true" aria-label="Capítulo 1, capítulo actual">Capítulo 1</button>
+          <button id="tab-chapter-2" type="button" role="tab" data-target="chapter-2" aria-controls="chapter-2" aria-selected="false" aria-label="Capítulo 2" tabindex="-1">Capítulo 2</button>
+          <button id="tab-chapter-3" type="button" role="tab" data-target="chapter-3" aria-controls="chapter-3" aria-selected="false" aria-label="Capítulo 3" tabindex="-1">Capítulo 3</button>
+          <button id="tab-chapter-4" type="button" role="tab" data-target="chapter-4" aria-controls="chapter-4" aria-selected="false" aria-label="Capítulo 4" tabindex="-1">Capítulo 4</button>
+          <button id="tab-chapter-5" type="button" role="tab" data-target="chapter-5" aria-controls="chapter-5" aria-selected="false" aria-label="Capítulo 5" tabindex="-1">Capítulo 5</button>
+          <button id="tab-chapter-6" type="button" role="tab" data-target="chapter-6" aria-controls="chapter-6" aria-selected="false" aria-label="Capítulo 6" tabindex="-1">Capítulo 6</button>
         </nav>
       </section>
 
@@ -292,7 +303,8 @@
       const nextButton = document.getElementById("next");
       let currentIndex = 0;
 
-      function showChapter(index) {
+      function showChapter(index, options = {}) {
+        const { focusPanel = false } = options;
         currentIndex = index;
         chapters.forEach((chapter, chapterIndex) => {
           const isActive = chapterIndex === index;
@@ -303,10 +315,17 @@
         jumpButtons.forEach((button, buttonIndex) => {
           const isActive = buttonIndex === index;
           button.setAttribute("aria-selected", String(isActive));
+          button.setAttribute(
+            "aria-label",
+            isActive ? `${button.textContent.trim()}, capítulo actual` : button.textContent.trim()
+          );
           button.tabIndex = isActive ? 0 : -1;
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;
+        if (focusPanel) {
+          chapters[index].focus();
+        }
       }
 
       jumpButtons.forEach((button, index) => {
@@ -334,15 +353,13 @@
 
       prevButton.addEventListener("click", () => {
         if (currentIndex > 0) {
-          showChapter(currentIndex - 1);
-          jumpButtons[currentIndex].focus();
+          showChapter(currentIndex - 1, { focusPanel: true });
         }
       });
 
       nextButton.addEventListener("click", () => {
         if (currentIndex < chapters.length - 1) {
-          showChapter(currentIndex + 1);
-          jumpButtons[currentIndex].focus();
+          showChapter(currentIndex + 1, { focusPanel: true });
         }
       });
 
