@@ -111,12 +111,8 @@
         box-shadow: none;
       }
 
-      .chapter {
-        display: none;
-      }
-
       .chapter.active {
-        display: block;
+        border: 2px solid #ffe1a8;
       }
 
       .tag {
@@ -312,7 +308,8 @@
       const nextButton = document.getElementById("next");
       let currentIndex = 0;
 
-      function showChapter(index) {
+      function showChapter(index, options = {}) {
+        const { focusPanel = false } = options;
         currentIndex = index;
         chapters.forEach((chapter, chapterIndex) => {
           const isActive = chapterIndex === index;
@@ -331,6 +328,9 @@
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;
+        if (focusPanel) {
+          chapters[index].focus();
+        }
       }
 
       jumpButtons.forEach((button, index) => {
@@ -358,15 +358,13 @@
 
       prevButton.addEventListener("click", () => {
         if (currentIndex > 0) {
-          showChapter(currentIndex - 1);
-          jumpButtons[currentIndex].focus();
+          showChapter(currentIndex - 1, { focusPanel: true });
         }
       });
 
       nextButton.addEventListener("click", () => {
         if (currentIndex < chapters.length - 1) {
-          showChapter(currentIndex + 1);
-          jumpButtons[currentIndex].focus();
+          showChapter(currentIndex + 1, { focusPanel: true });
         }
       });
 
