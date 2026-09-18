@@ -292,8 +292,7 @@
       const nextButton = document.getElementById("next");
       let currentIndex = 0;
 
-      function showChapter(index, options = {}) {
-        const { focusPanel = false } = options;
+      function showChapter(index) {
         currentIndex = index;
         chapters.forEach((chapter, chapterIndex) => {
           const isActive = chapterIndex === index;
@@ -313,24 +312,42 @@
         });
         prevButton.disabled = index === 0;
         nextButton.disabled = index === chapters.length - 1;
-        if (focusPanel) {
-          chapters[index].focus();
-        }
       }
 
       jumpButtons.forEach((button, index) => {
-        button.addEventListener("click", () => showChapter(index, { focusPanel: true }));
+        button.addEventListener("click", () => showChapter(index));
+        button.addEventListener("keydown", (event) => {
+          let nextIndex = null;
+
+          if (event.key === "ArrowRight") {
+            nextIndex = (index + 1) % jumpButtons.length;
+          } else if (event.key === "ArrowLeft") {
+            nextIndex = (index - 1 + jumpButtons.length) % jumpButtons.length;
+          } else if (event.key === "Home") {
+            nextIndex = 0;
+          } else if (event.key === "End") {
+            nextIndex = jumpButtons.length - 1;
+          }
+
+          if (nextIndex !== null) {
+            event.preventDefault();
+            showChapter(nextIndex);
+            jumpButtons[nextIndex].focus();
+          }
+        });
       });
 
       prevButton.addEventListener("click", () => {
         if (currentIndex > 0) {
-          showChapter(currentIndex - 1, { focusPanel: true });
+          showChapter(currentIndex - 1);
+          jumpButtons[currentIndex].focus();
         }
       });
 
       nextButton.addEventListener("click", () => {
         if (currentIndex < chapters.length - 1) {
-          showChapter(currentIndex + 1, { focusPanel: true });
+          showChapter(currentIndex + 1);
+          jumpButtons[currentIndex].focus();
         }
       });
 
